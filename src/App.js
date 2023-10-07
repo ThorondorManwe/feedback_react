@@ -8,6 +8,7 @@ import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
 import { v4 as uuidv4 } from "uuid";
 import AboutPage from "./pages/AboutPage";
+import AboutIconLink from "./components/AboutIconLink";
 
 export default function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
@@ -24,7 +25,7 @@ export default function App() {
   };
   return (
     <Router>
-      <Header text="Hello World" />
+      <Header />
 
       <div className="container">
         <Routes>
@@ -35,8 +36,12 @@ export default function App() {
                 <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
             </>
           }></Route>
+
           <Route path="/about" element={<AboutPage />} />
+
         </Routes>
+        
+        <AboutIconLink />
       </div>
     </Router>
   );
